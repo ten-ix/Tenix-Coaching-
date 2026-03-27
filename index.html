@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenix Coaching Classes</title>
+  <meta name="description" content="Tenix Coaching Classes - Professional coaching institute website demo for admissions, inquiries, and student trust." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* Navbar */
+    nav {
+      background: #0f172a;
+      color: white;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
+      padding: 80px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #e0f2fe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid #93c5fd;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      background: white;
+      color: #0f172a;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 14px;
+      color: #1d4ed8;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+
+    .hero-card ul li {
+      margin-bottom: 10px;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .hero-card ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-weight: bold;
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 18px;
+      font-size: 2rem;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #64748b;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* Cards */
+    .grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .course-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card h3 {
+      color: #1d4ed8;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* Why Us */
+    .why-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .icon-box {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    /* Faculty */
+    .faculty-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .faculty-card h4 {
+      margin-top: 12px;
+      color: #0f172a;
+    }
+
+    .faculty-card small {
+      color: #64748b;
+    }
+
+    .faculty-avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    /* Stats */
+    .stats {
+      background: #e0f2fe;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      text-align: center;
+    }
+
+    .stat-box h2 {
+      font-size: 2rem;
+      color: #0369a1;
+      margin-bottom: 6px;
+    }
+
+    .stat-box p {
+      color: #334155;
+      font-weight: 600;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .testimonial {
+      border-left: 5px solid #38bdf8;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .testimonial strong {
+      color: #0f172a;
+    }
+
+    /* Contact */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .contact-box, .form-box {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07);
+    }
+
+    .contact-box h3, .form-box h3 {
+      margin-bottom: 18px;
+      color: #1d4ed8;
+    }
+
+    .contact-box p {
+      margin-bottom: 12px;
+      color: #475569;
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    form button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 28px 0 90px;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 90px;
+      right: 18px;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.7rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    /* Sticky mobile CTA */
+    .mobile-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      z-index: 999;
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+    }
+
+    .mobile-cta a {
+      flex: 1;
+      text-align: center;
+      padding: 14px 10px;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .call-btn {
+      background: #0f172a;
+      color: white;
+    }
+
+    .wa-btn {
+      background: #22c55e;
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="container nav-wrap">
+      <div class="logo">Tenix Coaching Classes</div>
+      <div class="nav-links">
+        <a href="#courses">Courses</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#faculty">Faculty</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Admissions Open for 2026–27</span>
+        <h1>Build Strong Concepts. Score Better. Succeed Faster.</h1>
+        <p>
+          Welcome to <strong>Tenix Coaching Classes</strong> — a trusted learning space for students preparing for
+          board exams, competitive exams, and academic excellence with expert guidance.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Book Free Demo Class</a>
+          <a href="https://wa.me/919999999999" target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Why Students Choose Tenix</h3>
+        <ul>
+          <li>Experienced and student-friendly faculty</li>
+          <li>Small batches for better attention</li>
+          <li>Regular tests and performance tracking</li>
+          <li>Concept clarity + exam strategy</li>
+          <li>Offline + guided doubt support</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="width:100%; text-align:center;">Enquire Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses">
+    <div class="container">
+      <h2 class="section-title">Our Courses</h2>
+      <p class="section-subtitle">
+        Designed for school students and aspirants who want structured learning, strong basics, and exam-focused preparation.
+      </p>
+
+      <div class="grid course-grid">
+        <div class="card">
+          <h3>Class 9–10 Foundation</h3>
+          <p>Mathematics, Science, and concept-building for school success and future competitive exams.</p>
+        </div>
+        <div class="card">
+          <h3>Class 11–12 Science</h3>
+          <p>Physics, Chemistry, Biology, and Mathematics with board-oriented and conceptual preparation.</p>
+        </div>
+        <div class="card">
+          <h3>NEET Preparation</h3>
+          <p>Focused preparation with topic tests, doubt support, and exam strategy for medical aspirants.</p>
+        </div>
+        <div class="card">
+          <h3>JEE Foundation</h3>
+          <p>Structured preparation for engineering aspirants with concept practice and problem-solving approach.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="why-us" style="background:#f1f5f9;">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">
+        We focus on discipline, concept clarity, confidence, and consistent performance improvement.
+      </p>
+
+      <div class="grid why-grid">
+        <div class="card">
+          <div class="icon-box">📘</div>
+          <h3>Concept-Based Learning</h3>
+          <p>Students understand the “why” behind every topic instead of just memorizing answers.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box">🧪</div>
+          <h3>Regular Tests</h3>
+          <p>Weekly and monthly tests help students improve speed, accuracy, and confidence.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box">👨‍🏫</div>
+          <h3>Expert Guidance</h3>
+          <p>Dedicated faculty support with doubt solving and personal academic attention.</p>
+        </div>
+        <div class="card">
+          <div class="icon-box">🎯</div>
+          <h3>Result-Oriented Approach</h3>
+          <p>Smart study planning and exam-focused preparation to maximize student performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty -->
+  <section id="faculty">
+    <div class="container">
+      <h2 class="section-title">Faculty Highlights</h2>
+      <p class="section-subtitle">
+        Experienced mentors committed to student growth and academic success.
+      </p>
+
+      <div class="grid faculty-grid">
+        <div class="card faculty-card">
+          <div class="faculty-avatar">RK</div>
+          <h4>Rahul Kumar</h4>
+          <small>Physics Faculty</small>
+          <p style="margin-top:10px;">Focused on conceptual understanding, numerical practice, and board + entrance preparation.</p>
+        </div>
+        <div class="card faculty-card">
+          <div class="faculty-avatar">SP</div>
+          <h4>Shreya Patel</h4>
+          <small>Chemistry Faculty</small>
+          <p style="margin-top:10px;">Known for simplifying difficult topics and building strong problem-solving habits.</p>
+        </div>
+        <div class="card faculty-card">
+          <div class="faculty-avatar">AM</div>
+          <h4>Aman Mishra</h4>
+          <small>Mathematics Faculty</small>
+          <p style="margin-top:10px;">Helps students improve speed, logic, and confidence through structured practice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="grid stats-grid">
+        <div class="stat-box">
+          <h2>500+</h2>
+          <p>Students Guided</p>
+        </div>
+        <div class="stat-box">
+          <h2>95%</h2>
+          <p>Board Success Rate</p>
+        </div>
+        <div class="stat-box">
+          <h2>50+</h2>
+          <p>Top Rank Achievers</p>
+        </div>
+        <div class="stat-box">
+          <h2>5+</h2>
+          <p>Years of Academic Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials / Results -->
+  <section id="results">
+    <div class="container">
+      <h2 class="section-title">Student Feedback & Results</h2>
+      <p class="section-subtitle">
+        Real improvement comes from consistency, mentorship, and focused preparation.
+      </p>
+
+      <div class="grid testimonial-grid">
+        <div class="card testimonial">
+          <p>“The teaching style is simple and very effective. My confidence in Physics improved a lot.”</p>
+          <strong>— Riya Sharma, Class 12</strong>
+        </div>
+        <div class="card testimonial">
+          <p>“Regular tests and doubt sessions helped me improve my marks in Maths and Chemistry.”</p>
+          <strong>— Aditya Verma, NEET Aspirant</strong>
+        </div>
+        <div class="card testimonial">
+          <p>“Best part is personal attention. Teachers actually track your progress seriously.”</p>
+          <strong>— Muskan Tiwari, Class 10</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="background:#f1f5f9;">
+    <div class="container">
+      <h2 class="section-title">Contact & Admission Inquiry</h2>
+      <p class="section-subtitle">
+        Have questions about courses, batch timings, or admissions? Reach out today.
+      </p>
+
+      <div class="contact-wrap">
+        <div class="contact-box">
+          <h3>Institute Information</h3>
+          <p><strong>Institute Name:</strong> Tenix Coaching Classes</p>
+          <p><strong>Phone:</strong> +91 99999 99999</p>
+          <p><strong>WhatsApp:</strong> +91 99999 99999</p>
+          <p><strong>Address:</strong> Main Road, Bilaspur, Chhattisgarh</p>
+          <p><strong>Timings:</strong> Mon–Sat | 8:00 AM – 7:00 PM</p>
+
+          <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="tel:+919999999999" class="btn btn-primary">Call Now</a>
+            <a href="https://wa.me/919999999999" target="_blank" class="btn btn-outline" style="color:#0f172a; border-color:#0f172a;">WhatsApp</a>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-outline" style="color:#0f172a; border-color:#0f172a;">View Location</a>
+          </div>
+        </div>
+
+        <div class="form-box">
+          <h3>Enquiry Form</h3>
+          <form onsubmit="submitForm(event)">
+            <input type="text" id="name" placeholder="Student Name" required />
+            <input type="tel" id="phone" placeholder="Phone Number" required />
+            <select id="course" required>
+              <option value="">Select Course</option>
+              <option>Class 9–10 Foundation</option>
+              <option>Class 11–12 Science</option>
+              <option>NEET Preparation</option>
+              <option>JEE Foundation</option>
+            </select>
+            <textarea id="message" rows="5" placeholder="Your Message / Query"></textarea>
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-float" href="https://wa.me/919999999999" target="_blank" title="Chat on WhatsApp">
+    💬
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p><strong>Tenix Coaching Classes</strong></p>
+      <p>Helping students build strong concepts and better academic results.</p>
+      <p style="font-size: 0.9rem; opacity: 0.8;">© 2026 Tenix Coaching Classes. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="mobile-cta">
+    <a href="tel:+919999999999" class="call-btn">📞 Call Now</a>
+    <a href="https://wa.me/919999999999" target="_blank" class="wa-btn">💬 WhatsApp</a>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const course = document.getElementById("course").value;
+      const message = document.getElementById("message").value;
+
+      const whatsappNumber = "919999999999";
+
+      const text = `New Admission Inquiry:%0A%0AName: ${name}%0APhone: ${phone}%0ACourse: ${course}%0AMessage: ${message}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
